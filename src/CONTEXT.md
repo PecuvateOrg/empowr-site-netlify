@@ -19,6 +19,7 @@ Next.js 15 (App Router), TypeScript strict, Tailwind v4, shadcn/ui. Built as a s
 - /netlify-deploy — run from ops/ context
 
 ## Constraints
+- **This is not the Next.js most training data describes.** v15 changed APIs, conventions and file structure. Read the relevant guide in `node_modules/next/dist/docs/` before writing code against a remembered API, and heed deprecation notices. (Preserved from a scaffold-generated `src/AGENTS.md`, removed 2026-09-09 — that filename overrides root routing in `src/`-scoped sessions.)
 - npm commands always run from `src/` — never from the project root
 - Server Components by default — only `"use client"` where interactivity is genuinely needed
 - Brand tokens registered in `globals.css` under `@theme` — no arbitrary Tailwind values for design-system properties

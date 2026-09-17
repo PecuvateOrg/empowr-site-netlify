@@ -260,15 +260,68 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: "What is your cancellation and refund policy?",
         answer: (
           <>
+            {/*
+              Rewritten 2026-09-17. This answer previously read "All bookings
+              are final. Member-initiated cancellations, transfers, and
+              refunds — including no-shows — are not available by default."
+              That was the v1.1 position, and Terms & Conditions v1.2 /
+              Programme Policies v1.2 reversed it on 2026-09-02 — so for two
+              weeks this page denied customers rights the published policy
+              had already granted them. Self-serve cancellation shipped
+              2026-09-02 and self-serve date moves 2026-09-17.
+
+              Derived from the KB, which is the source of truth for session
+              policy: vaults/EMPOWR CIC/entities/sessions.md, "Cancellation &
+              Refund Policy". Do not edit this answer from memory — re-read
+              that section, and note the move right is per-offering.
+            */}
             <p>
-              All bookings are final. Member-initiated cancellations,
-              transfers, and refunds — including no-shows — are not available
-              by default. Exceptions are granted only at Empowr's discretion,
-              on request via our{" "}
+              Members cancel and move their own bookings from their account at{" "}
+              <a
+                href="https://members.empowrcic.org"
+                className={linkClass}
+                target="_blank"
+                rel="noopener"
+              >
+                members.empowrcic.org
+              </a>{" "}
+              — no email, no staff involvement.
+            </p>
+            <p className="mt-3">
+              <strong>Cancelling.</strong> Cancel at least 48 hours before the
+              session starts and we'll refund the full amount to the card used
+              to pay. Inside 48 hours a booking can't be cancelled and no
+              refund is due, including no-shows.
+            </p>
+            <p className="mt-3">
+              <strong>Moving to another date.</strong> Most single-session
+              bookings can be moved once to another date of the same
+              programme, at least 48 hours ahead and subject to availability.
+              Bookings can't be moved to a different programme or transferred
+              to another person. Your session page and your account both show
+              whether a particular booking can be moved.
+            </p>
+            <p className="mt-3">
+              <strong>Courses</strong> (Beginners Foundation, Prep to Street
+              Skate) can be cancelled up to 48 hours before the course begins.
+              Individual classes inside a course can't be moved or cancelled
+              separately — they're sold as a block.
+            </p>
+            <p className="mt-3">
+              <strong>Exceptions.</strong> Roller Quad Camp bookings are
+              strictly non-refundable and non-exchangeable whatever notice is
+              given. All Ages Roller Disco tickets are non-refundable and
+              non-transferable, with no refund or make-up for a missed
+              session.
+            </p>
+            <p className="mt-3">
+              Refunds go back to the original card, usually within 5–10
+              working days. Anything falling outside these rules can still be
+              raised via our{" "}
               <Link href="/contact" className={linkClass}>
                 contact form
               </Link>
-              .
+              , and remains at Empowr's discretion.
             </p>
             <p className="mt-3">
               If we have to cancel a session (weather, venue, or staffing),

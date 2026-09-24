@@ -57,7 +57,7 @@
 
 ## Content Rules
 
-- **Source of truth is the Empowr KB** (`F:\Projects\vaults\EMPOWR CIC`, vault root — no `KNOWLEDGE BASE\` subfolder as of the v3.0 migration) — answers are derived from KB pages, not invented. Grounding pages: `entities/empowr-cic`, `entities/eela-programme`, `entities/sessions`, `entities/session-faqs`, `entities/eccp`, `entities/heroes-platform`, `entities/community-roles`, `concepts/experiential-learning`, `synthesis/impact-report`, `entities/board`, `processes/governance` (`entities/governance` was split into these two on 2026-08-18 — the old path no longer exists)
+- **Source of truth is the Empowr KB** (`~/projects/vaults/EMPOWR CIC`, vault root — no `KNOWLEDGE BASE\` subfolder as of the v3.0 migration) — answers are derived from KB pages, not invented. Grounding pages: `entities/empowr-cic`, `entities/eela-programme`, `entities/sessions`, `entities/session-faqs`, `entities/eccp`, `entities/heroes-platform`, `entities/community-roles`, `concepts/experiential-learning`, `synthesis/impact-report`, `entities/board`, `processes/governance` (`entities/governance` was split into these two on 2026-08-18 — the old path no longer exists)
 - **Never hardcode schedules, prices, or ages** — eela.empowrcic.org is canonical for session specifics; link there instead
 - **Cancellation answer must track legal policy** (currently v1.1) — if T&Cs change, this FAQ changes
 - **Impact figures only from CIC 34 reports** — nothing aspirational

@@ -46,6 +46,11 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // hostname for every deploy-preview URL.
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY ?? "";
 
+// Same base URL the chat widget functions already read (chat-config.ts,
+// chat-message.ts) — reused here rather than adding a second, redundant
+// full-URL variable for the same host.
+const CRM_API_BASE_URL = process.env.CRM_API_BASE_URL ?? "";
+
 async function verifyTurnstile(token: unknown, remoteIp: string | undefined): Promise<boolean> {
   if (!TURNSTILE_SECRET_KEY) return true;
   if (typeof token !== "string" || !token) return false;
@@ -87,12 +92,11 @@ async function notifyCrm(fields: {
   message: string;
   source: string;
 }): Promise<boolean> {
-  const apiUrl = process.env.CRM_CONTACT_API_URL;
   const apiKey = process.env.CRM_CONTACT_API_KEY;
-  if (!apiUrl || !apiKey) return false;
+  if (!CRM_API_BASE_URL || !apiKey) return false;
 
   try {
-    const res = await fetch(apiUrl, {
+    const res = await fetch(`${CRM_API_BASE_URL}/api/channels/contact-form`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

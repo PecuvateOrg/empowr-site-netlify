@@ -46,17 +46,30 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // hostname for every deploy-preview URL.
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY ?? "";
 
+// EELA has its own Turnstile widget (split from this one 2026-09-27 — they
+// used to share a single widget/secret pair, which meant EELA's widget
+// couldn't be scoped, rotated or revoked independently of Main Site's own).
+// EELA's page still posts its token here rather than verifying it itself, so
+// this function needs both secrets and must check a token against the one
+// that matches whichever widget actually issued it.
+const EELA_TURNSTILE_SECRET_KEY = process.env.EELA_TURNSTILE_SECRET_KEY ?? "";
+
+function turnstileSecretFor(origin: string | undefined): string {
+  return origin && ALLOWED_ORIGINS.includes(origin) ? EELA_TURNSTILE_SECRET_KEY : TURNSTILE_SECRET_KEY;
+}
+
 // Same base URL the chat widget functions already read (chat-config.ts,
 // chat-message.ts) — reused here rather than adding a second, redundant
 // full-URL variable for the same host.
 const CRM_API_BASE_URL = process.env.CRM_API_BASE_URL ?? "";
 
-async function verifyTurnstile(token: unknown, remoteIp: string | undefined): Promise<boolean> {
-  if (!TURNSTILE_SECRET_KEY) return true;
+async function verifyTurnstile(token: unknown, remoteIp: string | undefined, origin: string | undefined): Promise<boolean> {
+  const secret = turnstileSecretFor(origin);
+  if (!secret) return true;
   if (typeof token !== "string" || !token) return false;
 
   try {
-    const body = new URLSearchParams({ secret: TURNSTILE_SECRET_KEY, response: token });
+    const body = new URLSearchParams({ secret, response: token });
     if (remoteIp) body.set("remoteip", remoteIp);
 
     const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -167,7 +180,7 @@ export const handler = async (event: {
   // that got past the honeypot is what damaged the sending domain's shared
   // reputation for every form on it (2026-08-17 spam incident).
   const remoteIp = event.headers?.["x-nf-client-connection-ip"] ?? event.headers?.["client-ip"];
-  const humanVerified = await verifyTurnstile(turnstileToken, remoteIp);
+  const humanVerified = await verifyTurnstile(turnstileToken, remoteIp, origin);
   if (!humanVerified) {
     return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Verification failed — please try again" }) };
   }

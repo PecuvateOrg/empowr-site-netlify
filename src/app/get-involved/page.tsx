@@ -14,7 +14,7 @@ const ROUTES = [
     body: "Give monthly or one-time to fund Empowr programmes and activities in the community. Every contribution helps us reach more people.",
     cta: "Become a Hero",
     // Explicit ask — land on the tier chooser, not the Heroes mission page.
-    href: LINKS.heroesDonate,
+    href: LINKS.heroesplatform,
     external: true,
     // Empowr-owned destination — keep the Referer header so cross-property
     // traffic stays attributable in analytics. See noreferrer note below.

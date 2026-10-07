@@ -1,12 +1,9 @@
 export const LINKS = {
-  // Heroes landing (`/`) — for informational mentions, where the visitor has
-  // not yet responded to an ask and still needs the mission pitch.
+  // Heroes homepage (`/`) — every Heroes link, including explicit asks. Until
+  // 2026-10-07 the asks went straight to `/become` to cut a step; the owner
+  // reversed that: donors need to see what they're funding (projects, what a
+  // Hero receives) before choosing a tier, and the Heroes homepage now shows both.
   heroesplatform: "https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
-  // Heroes tier chooser (`/become`) — for explicit asks ("Support Us",
-  // "Become a Hero"). The visitor has already decided; do not make them read
-  // the mission page again before they can give.
-  heroesDonate:
-    "https://hero.empowrcic.org/become?utm_source=empowr-main&utm_medium=internal",
   experientialLearningReport: "/experiential-learning/report",
   booking: "https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
   eelaAbout: "https://eela.empowrcic.org/about?utm_source=empowr-main&utm_medium=internal",

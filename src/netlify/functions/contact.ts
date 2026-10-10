@@ -6,6 +6,8 @@ import { Resend } from "resend";
 const ALLOWED_ORIGINS = [
   "https://eela.empowrcic.org",
   "https://empowr-eela.netlify.app",
+  "https://members.empowrcic.org",
+  "https://empowr-members.netlify.app",
 ];
 
 function corsHeaders(requestOrigin: string | undefined): Record<string, string> {
@@ -46,16 +48,23 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // hostname for every deploy-preview URL.
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY ?? "";
 
-// EELA has its own Turnstile widget (split from this one 2026-09-27 — they
-// used to share a single widget/secret pair, which meant EELA's widget
-// couldn't be scoped, rotated or revoked independently of Main Site's own).
-// EELA's page still posts its token here rather than verifying it itself, so
-// this function needs both secrets and must check a token against the one
-// that matches whichever widget actually issued it.
-const EELA_TURNSTILE_SECRET_KEY = process.env.EELA_TURNSTILE_SECRET_KEY ?? "";
+// EELA (split 2026-09-27) and Members (2026-10-10) each have their own
+// Turnstile widget, so their tokens must be checked against that widget's
+// secret. They post here rather than verifying themselves, so this function
+// holds every secret and picks one by request origin. Every cross-origin
+// entry in ALLOWED_ORIGINS needs a row here: an origin without one would
+// fall through to Main Site's secret and fail every submission. The same
+// fall-through applies to an origin whose own secret is unset: it fails
+// closed in production rather than skipping verification.
+const ORIGIN_TURNSTILE_SECRETS: Record<string, string> = {
+  "https://eela.empowrcic.org": process.env.EELA_TURNSTILE_SECRET_KEY ?? "",
+  "https://empowr-eela.netlify.app": process.env.EELA_TURNSTILE_SECRET_KEY ?? "",
+  "https://members.empowrcic.org": process.env.MEMBERS_TURNSTILE_SECRET_KEY ?? "",
+  "https://empowr-members.netlify.app": process.env.MEMBERS_TURNSTILE_SECRET_KEY ?? "",
+};
 
 function turnstileSecretFor(origin: string | undefined): string {
-  return origin && ALLOWED_ORIGINS.includes(origin) ? EELA_TURNSTILE_SECRET_KEY : TURNSTILE_SECRET_KEY;
+  return (origin && ORIGIN_TURNSTILE_SECRETS[origin]) || TURNSTILE_SECRET_KEY;
 }
 
 // Same base URL the chat widget functions already read (chat-config.ts,

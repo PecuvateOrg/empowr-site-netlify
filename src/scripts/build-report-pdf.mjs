@@ -37,18 +37,44 @@ try {
   const page = await browser.newPage({ viewport: { width: 1000, height: 1400 } })
   await page.goto(`${origin}/experiential-learning/report`, { waitUntil: 'networkidle' })
 
-  // Strip site chrome and on-screen-only controls; open the collapsed references.
+  // Print layout: the web page reflowed for A4 — smaller type (Tailwind is rem-based, so the
+  // root size scales everything), no site chrome, and planned page starts per section.
   await page.addStyleTag({
     content: `
-      header, footer, [data-pdf-hide] { display: none !important; }
+      html { font-size: 14.5px; }
+      header, footer, hr, [data-pdf-hide] { display: none !important; }
       body, .bg-cream { background: #fff !important; }
-      main > section:first-child { break-after: avoid; }
-      h2, .rounded-2xl { break-inside: avoid; }
-      h2, p.uppercase { break-after: avoid; }
+      main > section { padding-top: 0 !important; padding-bottom: 0 !important; }
+      main > section:first-child > div { padding: 30px 40px 26px !important; }
+      main > section:nth-child(2) > div { padding: 20px 40px 0 !important; max-width: none !important; }
+      main > section:nth-child(2) > div > * + * { margin-top: 22px !important; }
+      .pdf-logo { height: 56px; width: auto; margin-bottom: 22px; filter: brightness(0) invert(1); }
+      .pdf-page { break-before: page; padding-top: 6px; }
+      .pdf-cards3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 12px !important; }
+      .pdf-tight { zoom: 0.9; }
+      .rounded-2xl { padding: 14px !important; break-inside: avoid; }
+      .text-lg { font-size: 1.08rem !important; }
+      h2 { break-after: avoid; }
+      details summary { display: none; }
+      details ol { font-size: 0.92rem; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     `,
   })
-  await page.evaluate(() => document.querySelectorAll('details').forEach((d) => (d.open = true)))
+  await page.evaluate(() => {
+    document.querySelectorAll('details').forEach((d) => (d.open = true))
+    const block = (eyebrow) =>
+      [...document.querySelectorAll('main p.uppercase')].find((p) => p.textContent.trim() === eyebrow)?.parentElement
+    // Page plan: 1 cover + stats + problem · 2 science + evidence · 3 economic case + commitment · 4 references.
+    for (const eyebrow of ['The Science', 'The Economic Case']) block(eyebrow)?.classList.add('pdf-page')
+    block('The Evidence')?.querySelector('.grid')?.classList.add('pdf-cards3')
+    for (const eyebrow of ['The Science', 'The Evidence']) block(eyebrow)?.classList.add('pdf-tight')
+    const refs = document.querySelector('details')
+    refs?.classList.add('pdf-page')
+    refs?.insertAdjacentHTML('afterbegin', '<h2 class="text-2xl font-extrabold text-black" style="margin-bottom:12px">Sources &amp; References</h2>')
+    const hero = document.querySelector('main > section:first-child > div')
+    hero?.insertAdjacentHTML('afterbegin', '<img class="pdf-logo" src="/logo.png" alt="Empowr CIC">')
+  })
+  await page.waitForLoadState('networkidle')
   await page.emulateMedia({ media: 'screen' })
 
   await mkdir(dirname(out), { recursive: true })

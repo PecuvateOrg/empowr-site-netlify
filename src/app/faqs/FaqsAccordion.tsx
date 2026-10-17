@@ -236,17 +236,19 @@ const FAQ_SECTIONS: FaqSection[] = [
         answer: (
           <>
             <p>
-              Protective gear and quad skates are required for structured
-              lessons, courses, and camps: a properly fitted helmet (not a
-              bike helmet), knee pads, elbow pads, wrist guards, and your own
-              quad roller skates. Members arriving without this can't take
-              part in a structured lesson, course, or camp.
+              It depends on the session and the skater&apos;s age. At lessons,
+              courses, private coaching and camps, skaters under 16 must wear
+              full protective gear: a properly fitted skate helmet (not a bike
+              helmet), knee pads, elbow pads and wrist guards. A skater under
+              16 who arrives without it can&apos;t take part. For skaters aged
+              16 and over it is highly recommended, especially for beginners.
             </p>
             <p className="mt-3">
-              Open-skate and social sessions — Skate Jam, Roller Disco, and
-              Roller Skate Events — don't require this kit list; protective
-              gear is recommended but not mandatory there, and Skate Jam
-              welcomes both quads and inline skates.
+              At events, open skate sessions and parties (Skate Jam, Roller
+              Disco, Roller Skate Events and birthday parties), protective gear
+              is recommended but not required, and Skate Jam welcomes both quads
+              and inline skates. Everywhere else, please bring your own quad
+              skates.
             </p>
             <p className="mt-3">
               Skate hire is available at some sessions — included at the

@@ -1,5 +1,16 @@
 # Empowr Main Site
 
+## About
+
+### What it is
+Empowr CIC's main website, at empowrcic.org.
+
+### What it's for
+To tell people who Empowr is, what it does and the difference it makes, and send each visitor — participant, parent, supporter or partner — to the right place.
+
+### How it works
+An information site: mission, programmes and impact, plus a contact form. Nothing is bought or booked here; visitors are routed to the right platform (booking, donations, the freelancer network) for that.
+
 Public website for **Empowr CIC** — mission, programmes, impact, and audience routing. Replacing the previous Wix site. This is a narrative/information site, not transactional (no payments or bookings happen here).
 
 Built with Next.js 16 (App Router), React 19, Tailwind CSS v4. Deployed on Netlify.

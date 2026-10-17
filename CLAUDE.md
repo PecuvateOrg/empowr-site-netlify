@@ -21,6 +21,16 @@ detail lives in each CONTEXT.md.
 | UI, components, pages, routing, styling, news | src/ | src/CONTEXT.md | — |
 | Deploy, env vars, Netlify config, domain cutover | ops/ | ops/CONTEXT.md | /netlify-deploy |
 
+## Shared Memory
+
+Adopts `Frameworks/MWP Framework/spec/session-memory.md` (2026-10-05). This repo is public, so
+all of these live in the **private** hub at `../workspace-docs/empowr-site-netlify/`, never here:
+
+- Session bridge (read at start, rewrite in place at close, ≤1,000 words): `memory.md`
+- Decisions: `decisions.md`
+- Traps and "do not" rules — read before touching the area: `gotchas.md`
+- Session history: `DEVLOG.md`; pre-bridge memory, search only: `archive/memory-history-to-2026-10-05.md`
+
 ## Cross-Workspace Flows
 - Content → build: read `planning/architecture/` for the target page → implement in `src/app/`
 - Deploy: verify `src/` build → ops/ for Netlify deploy and Route 53 DNS cutover

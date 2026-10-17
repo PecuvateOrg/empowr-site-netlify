@@ -74,6 +74,7 @@ export default function ExperientialLearningReportPage() {
         <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
           <Link
             href={LINKS.experientialLearning}
+            data-pdf-hide
             className="inline-flex items-center gap-1.5 text-blue-light text-sm font-semibold hover:text-white transition-colors mb-8"
           >
             ← Experiential Learning
@@ -89,6 +90,14 @@ export default function ExperientialLearningReportPage() {
             This report makes the case for experiential learning — a proven, cost-effective approach
             to building resilience and promoting lifelong wellbeing for people of all ages.
           </p>
+          <a
+            href={LINKS.experientialLearningReportPdf}
+            download
+            data-pdf-hide
+            className="inline-flex items-center gap-2 mt-8 bg-white text-blue font-bold text-sm px-5 py-3 rounded-full hover:bg-blue-pale transition-colors"
+          >
+            Download the report (PDF)
+          </a>
         </div>
       </section>
 

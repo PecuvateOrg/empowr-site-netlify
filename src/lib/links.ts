@@ -5,6 +5,8 @@ export const LINKS = {
   // Hero receives) before choosing a tier, and the Heroes homepage now shows both.
   heroesplatform: "https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
   experientialLearningReport: "/experiential-learning/report",
+  // Regenerate with `npm run report:pdf` whenever the report page changes.
+  experientialLearningReportPdf: "/reports/empowr-non-medical-approach-to-mental-health-2025.pdf",
   booking: "https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
   eelaAbout: "https://eela.empowrcic.org/about?utm_source=empowr-main&utm_medium=internal",
   experientialLearning: "/experiential-learning",

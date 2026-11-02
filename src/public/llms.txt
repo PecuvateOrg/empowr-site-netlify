@@ -13,7 +13,7 @@ Empowr CIC runs structured programmes for adults and young people — including 
 
 ## Platforms
 
-- [EELA](https://eela.empowrcic.org): Session discovery and membership platform — find and book Empowr programmes
+- [EELA](https://eela.empowrcic.org): Session discovery and booking platform — find and book Empowr programmes
 - [EFN](https://efn.empowrcic.org): Empowr Freelancer Network — onboarding, assignments, and payments for freelancers
 - [Empowr Heroes](https://heroes.empowrcic.org): Fundraising and donation platform supporting Empowr CIC's mission
 

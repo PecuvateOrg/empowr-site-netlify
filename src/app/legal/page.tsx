@@ -35,7 +35,7 @@ const POLICIES = [
   },
   {
     name: "Programme Policies",
-    desc: "Session rules, code of conduct, and membership terms for Empowr programmes.",
+    desc: "Session rules, code of conduct, and subscription terms for Empowr programmes.",
     href: LINKS.programmePolicies,
   },
 ];

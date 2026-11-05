@@ -12,7 +12,7 @@
   "dependencies": {
     "@marsidev/react-turnstile": "^1.6.0",
     "gray-matter": "^4.0.3",
-    "next": "16.2.6",
+    "next": "16.4.5",
     "next-mdx-remote": "^6.0.0",
     "posthog-js": "^1.392.0",
     "react": "19.2.4",
@@ -27,7 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.6",
+    "eslint-config-next": "16.4.5",
     "playwright-core": "1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"

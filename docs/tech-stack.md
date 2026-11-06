@@ -144,7 +144,7 @@ src/
 |---|---|---|
 | `RESEND_API_KEY` | Yes | Contact form email delivery |
 | `CONTACT_EMAIL` | Yes | General enquiry destination (`enquiries@empowrcic.org`) |
-| `OPPORTUNITIES_EMAIL` | Yes | Work With Us destination (`opportunities@empowrcic.org`) |
+| `OPPORTUNITIES_EMAIL` | Yes | Work With Us and Volunteering destination (`opportunities@empowrcic.org`) |
 
 Variables are consumed by the `netlify/functions/contact.ts` Netlify Function, not by Next.js pages.
 

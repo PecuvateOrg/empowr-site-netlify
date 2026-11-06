@@ -72,7 +72,7 @@ ContactForm.tsx (client component)
     ▼
 netlify/functions/contact.ts (Netlify Function — serverless Node.js)
     │
-    ├── subject = "Work With Us"
+    ├── subject = "Work With Us" or "Volunteering"
     │       → send to OPPORTUNITIES_EMAIL (opportunities@empowrcic.org)
     │
     └── all other subjects (General, Partnership, Media)

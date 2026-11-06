@@ -15,6 +15,7 @@
 - Submit states: idle → submitting (button disabled) → success message or inline error with fallback email link
 - Subject routing (handled by `netlify/functions/contact.ts`):
   - Work With Us → `opportunities@empowrcic.org`
+  - Volunteering → `opportunities@empowrcic.org`
   - General Enquiry, Partnership, Media → `enquiries@empowrcic.org`
 - Confirmation email sent to sender via Resend on every submission
 

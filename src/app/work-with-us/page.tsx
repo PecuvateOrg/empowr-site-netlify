@@ -37,6 +37,7 @@ const ROLES = [
     body: "Contribute time in any capacity — event support, mentoring, community outreach, or skills-based volunteering. Every hour counts.",
     cta: "Express Interest",
     href: "/contact" as const,
+    subject: "Volunteering",
     message: "Hi, I'd like to find out about volunteering with Empowr CIC.",
     external: false,
   },
@@ -96,7 +97,7 @@ export default function WorkWithUsPage() {
                   </a>
                 ) : (
                   <Link
-                    href={role.message ? { pathname: role.href, query: { subject: "Work With Us", message: role.message } } : role.href}
+                    href={role.message ? { pathname: role.href, query: { subject: role.subject ?? "Work With Us", message: role.message } } : role.href}
                     className="self-start bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors"
                   >
                     {role.cta}

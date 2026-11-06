@@ -22,6 +22,7 @@ function corsHeaders(requestOrigin: string | undefined): Record<string, string> 
 
 const SUBJECT_ROUTING: Record<string, string> = {
   "Work With Us": process.env.OPPORTUNITIES_EMAIL ?? "",
+  Volunteering: process.env.OPPORTUNITIES_EMAIL ?? "",
 };
 
 const DEFAULT_TO = process.env.CONTACT_EMAIL ?? "";

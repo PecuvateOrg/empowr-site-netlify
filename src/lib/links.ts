@@ -27,7 +27,7 @@ export const LINKS = {
     "https://find-and-update.company-information.service.gov.uk/company/13660924",
   cicReport2025:
     "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzUwMzQ0NDc4NWFkaXF6a2N4/document?format=pdf&download=0",
-  shop: "https://empowrcic.wixsite.com/empowrcic/shop",
+  shop: "https://shop.empowrcic.org",
   trustpilot: "https://www.trustpilot.com/review/empowrcic.org",
   cicReport2024:
     "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzQ1MzgyNTQwOWFkaXF6a2N4/document?format=pdf&download=0",

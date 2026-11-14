@@ -17,6 +17,7 @@ detail lives in each CONTEXT.md.
 ## Routing
 | Task | Go to | Read | Skills |
 |---|---|---|---|
+| **Design: look, colours, components** | `design-system/` | `design-system/MASTER.md` (then the Empowr brand kit it names) | — |
 | Copy, page blueprints, narrative, programme descriptions | planning/ | planning/CONTEXT.md | — |
 | UI, components, pages, routing, styling, news | src/ | src/CONTEXT.md | — |
 | Deploy, env vars, Netlify config, domain cutover | ops/ | ops/CONTEXT.md | /netlify-deploy |

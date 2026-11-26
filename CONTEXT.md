@@ -1,9 +1,5 @@
 # Empowr Main Site — Context
 
-Read this after `CLAUDE.md` to orient within the project.
-
----
-
 ## What This Is
 
 The main public website for Empowr CIC. Narrative and information site — not transactional. Routes audiences to the right places and surfaces CIC reports, programme info, and contact routes.
@@ -42,7 +38,6 @@ src/
     news/                 MDX files for news posts (one per post)
 planning/
   site-plan.md            Full site plan and page blueprints
-CLAUDE.md                 Project rules
 ```
 
 ---
